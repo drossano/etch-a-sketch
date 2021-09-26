@@ -10,8 +10,8 @@ html {
     }
 
     #grid-container {
-        height: 960px;
-        width: 960px;
+        height: 900px;
+        width: 900px;
         display: flex;
         border: 1px solid black;
     }
