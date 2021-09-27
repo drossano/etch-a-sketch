@@ -16,3 +16,10 @@ for (let i = 0; i < gridDimension; i++){
 }
 
 
+const gridSquare = document.querySelectorAll('[class^="grid-square-"]')
+
+gridSquare.forEach((div) => {
+    div.addEventListener("mouseenter",(e) => {
+        e.target.style.background = "black";
+    });
+});
