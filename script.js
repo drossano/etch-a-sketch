@@ -21,10 +21,14 @@ function drawGrid(gridDimension) {
     return gridSquare;
 }
 
-const blackButton = document.querySelector("#black");
-blackButton.addEventListener('click', () =>{
+function gridPrompt() {
     gridDimension = prompt ();
     drawGrid(gridDimension);
+}
+
+const blackButton = document.querySelector("#black");
+blackButton.addEventListener('click', () =>{
+    gridPrompt();
     fillSquareBlack();
 });
 
@@ -39,8 +43,7 @@ function fillSquareBlack(){
 
 const randomColorButton = document.querySelector("#random-color");
 randomColorButton.addEventListener('click', () =>{
-    gridDimension = prompt ();
-    drawGrid(gridDimension);
+    gridPrompt();
     fillSquareRandomColor();
 });
 
@@ -62,8 +65,7 @@ function pickRandomColor() {
 
 const gradualFillButton = document.querySelector("#gradual-fill");
 gradualFillButton.addEventListener('click', () =>{
-    gridDimension = prompt ();
-    drawGrid(gridDimension);
+    gridPrompt();
     fillSquareGradual();
 });
 
