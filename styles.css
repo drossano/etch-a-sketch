@@ -11,7 +11,6 @@ html {
   }
 
 #grid-container {
-    margin: 0 auto;
     height: 900px;
     width: 900px;
     display: flex;
@@ -23,6 +22,9 @@ html {
   flex-direction: column;
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .buttons {
@@ -34,6 +36,7 @@ html {
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 }
 
 body{
