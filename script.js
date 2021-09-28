@@ -1,11 +1,8 @@
-const container = document.querySelector('#grid-container');
+
 
 const blackButton = document.querySelector("#black");
 blackButton.addEventListener('click', () =>{
     gridDimension = prompt ();
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
     drawGrid(gridDimension);
     fillSquareBlack();
 });
@@ -22,6 +19,10 @@ function fillSquareBlack(){
 fillSquareBlack(drawGrid(16));
 
 function drawGrid(gridDimension) {
+    const container = document.querySelector('#grid-container');
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
     for (let i = 0; i < gridDimension; i++){
         const gridColumn = document.createElement('div');
         gridColumn.classList.add('grid-column-' + i);
@@ -50,9 +51,6 @@ function fillSquareRandomColor(){
 const randomColorButton = document.querySelector("#random-color");
 randomColorButton.addEventListener('click', () =>{
     gridDimension = prompt ();
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
     drawGrid(gridDimension);
     fillSquareRandomColor();
 });
@@ -67,9 +65,6 @@ function pickRandomColor() {
 const gradualFillButton = document.querySelector("#gradual-fill");
 gradualFillButton.addEventListener('click', () =>{
     gridDimension = prompt ();
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
     drawGrid(gridDimension);
     fillSquareGradual();
 });
