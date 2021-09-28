@@ -22,7 +22,11 @@ function drawGrid(gridDimension) {
 }
 
 function gridPrompt() {
-    gridDimension = prompt ();
+    let gridDimension;
+    do{
+        gridDimension = prompt ("Enter a number from 1-100");
+        console.log(gridDimension > 0 && gridDimension<=100);
+    }while(gridDimension < 0 && gridDimension>=100);
     drawGrid(gridDimension);
 }
 
