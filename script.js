@@ -1,21 +1,3 @@
-
-
-const blackButton = document.querySelector("#black");
-blackButton.addEventListener('click', () =>{
-    gridDimension = prompt ();
-    drawGrid(gridDimension);
-    fillSquareBlack();
-});
-
-function fillSquareBlack(){
-    const gridSquare = document.querySelectorAll('[class^="grid-square-"]');
-    gridSquare.forEach((div) => {
-        div.addEventListener("mouseenter",(e) => {
-            e.target.style.background = "black";
-        });
-    });
-}
-
 fillSquareBlack(drawGrid(16));
 
 function drawGrid(gridDimension) {
@@ -39,11 +21,18 @@ function drawGrid(gridDimension) {
     return gridSquare;
 }
 
-function fillSquareRandomColor(){
+const blackButton = document.querySelector("#black");
+blackButton.addEventListener('click', () =>{
+    gridDimension = prompt ();
+    drawGrid(gridDimension);
+    fillSquareBlack();
+});
+
+function fillSquareBlack(){
     const gridSquare = document.querySelectorAll('[class^="grid-square-"]');
     gridSquare.forEach((div) => {
         div.addEventListener("mouseenter",(e) => {
-            e.target.style.background = pickRandomColor();
+            e.target.style.background = "black";
         });
     });
 }
@@ -54,6 +43,15 @@ randomColorButton.addEventListener('click', () =>{
     drawGrid(gridDimension);
     fillSquareRandomColor();
 });
+
+function fillSquareRandomColor(){
+    const gridSquare = document.querySelectorAll('[class^="grid-square-"]');
+    gridSquare.forEach((div) => {
+        div.addEventListener("mouseenter",(e) => {
+            e.target.style.background = pickRandomColor();
+        });
+    });
+}
 
 function pickRandomColor() {
     return 'rgba(' + randomRGBValue() + ',' + randomRGBValue() + ',' + randomRGBValue() + ',' + Math.random() + ')';
@@ -74,7 +72,6 @@ function fillSquareGradual(){
     gridSquare.forEach((div) => {
         let opacity= 0;
         div.addEventListener("mouseenter",(e) => {
-            
             opacity += .1;
             e.target.style.background = "rgba(0,0,0,"+ opacity +")";
         });
