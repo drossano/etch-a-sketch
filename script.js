@@ -1,14 +1,5 @@
 const container = document.querySelector('#grid-container');
 
-
-
-
-const button = document.querySelector("button");
-button.addEventListener('click', () =>{
-    gridDimension = prompt ();
-    
-})
-
 function drawGrid(gridDimension) {
     for (let i = 0; i < gridDimension; i++){
         const gridColumn = document.createElement('div');
@@ -22,15 +13,25 @@ function drawGrid(gridDimension) {
             gridSquare.setAttribute('style', "height: 100%; width 100%; border-collapse: collapse; border: 1px solid black;")
         }
     }
-    return;
+    const gridSquare = document.querySelectorAll('[class^="grid-square-"]');
+    fillSquare(gridSquare);
 }
 
 drawGrid(16);
 
-const gridSquare = document.querySelectorAll('[class^="grid-square-"]')
-
-gridSquare.forEach((div) => {
-    div.addEventListener("mouseenter",(e) => {
-        e.target.style.background = "black";
+function fillSquare(gridSquare){
+    gridSquare.forEach((div) => {
+        div.addEventListener("mouseenter",(e) => {
+            e.target.style.background = "black";
+        });
     });
+}
+
+const button = document.querySelector("button");
+button.addEventListener('click', () =>{
+    gridDimension = prompt ();
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+    drawGrid(gridDimension);
 });
