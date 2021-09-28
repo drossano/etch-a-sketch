@@ -1,5 +1,24 @@
 const container = document.querySelector('#grid-container');
 
+const blackButton = document.querySelector("#black");
+blackButton.addEventListener('click', () =>{
+    gridDimension = prompt ();
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+    drawGrid(gridDimension);
+    fillSquareBlack();
+});
+
+function fillSquareBlack(){
+    const gridSquare = document.querySelectorAll('[class^="grid-square-"]');
+    gridSquare.forEach((div) => {
+        div.addEventListener("mouseenter",(e) => {
+            e.target.style.background = "black";
+        });
+    });
+}
+
 function drawGrid(gridDimension) {
     for (let i = 0; i < gridDimension; i++){
         const gridColumn = document.createElement('div');
@@ -14,24 +33,37 @@ function drawGrid(gridDimension) {
         }
     }
     const gridSquare = document.querySelectorAll('[class^="grid-square-"]');
-    fillSquare(gridSquare);
+    fillSquareBlack(gridSquare);
+    return gridSquare;
 }
 
 drawGrid(16);
 
-function fillSquare(gridSquare){
+function fillSquareRandomColor(){
+    const gridSquare = document.querySelectorAll('[class^="grid-square-"]');
     gridSquare.forEach((div) => {
         div.addEventListener("mouseenter",(e) => {
-            e.target.style.background = "black";
+            e.target.style.background = pickRandomColor();
         });
     });
 }
 
-const button = document.querySelector("button");
-button.addEventListener('click', () =>{
+const randomColorButton = document.querySelector("#random-color");
+randomColorButton.addEventListener('click', () =>{
     gridDimension = prompt ();
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
     drawGrid(gridDimension);
+    fillSquareRandomColor();
 });
+
+
+
+
+function pickRandomColor() {
+    return 'rgba(' + randomRGBValue() + ',' + randomRGBValue() + ',' + randomRGBValue() + ',' + Math.random() + ')';
+    function randomRGBValue(){
+        return Math.floor(Math.random() * 255);
+    }
+}
