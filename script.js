@@ -19,6 +19,9 @@ function fillSquareBlack(){
     });
 }
 
+
+fillSquareBlack(drawGrid(16));
+
 function drawGrid(gridDimension) {
     for (let i = 0; i < gridDimension; i++){
         const gridColumn = document.createElement('div');
@@ -33,11 +36,10 @@ function drawGrid(gridDimension) {
         }
     }
     const gridSquare = document.querySelectorAll('[class^="grid-square-"]');
-    fillSquareBlack(gridSquare);
+    
     return gridSquare;
 }
 
-drawGrid(16);
 
 function fillSquareRandomColor(){
     const gridSquare = document.querySelectorAll('[class^="grid-square-"]');
