@@ -19,6 +19,7 @@ html {
 }
 
 .color-select{
+  width: 360px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,4 +45,12 @@ html {
 
 body{
   height: 100%;
+}
+
+p {
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
 }
