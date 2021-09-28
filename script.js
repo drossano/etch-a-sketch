@@ -58,12 +58,32 @@ randomColorButton.addEventListener('click', () =>{
     fillSquareRandomColor();
 });
 
-
-
-
 function pickRandomColor() {
     return 'rgba(' + randomRGBValue() + ',' + randomRGBValue() + ',' + randomRGBValue() + ',' + Math.random() + ')';
     function randomRGBValue(){
         return Math.floor(Math.random() * 255);
     }
 }
+
+const gradualFillButton = document.querySelector("#gradual-fill");
+gradualFillButton.addEventListener('click', () =>{
+    gridDimension = prompt ();
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+    drawGrid(gridDimension);
+    fillSquareGradual();
+});
+
+function fillSquareGradual(){
+    const gridSquare = document.querySelectorAll('[class^="grid-square-"]');
+    gridSquare.forEach((div) => {
+        let opacity= 0;
+        div.addEventListener("mouseenter",(e) => {
+            
+            opacity += .1;
+            e.target.style.background = "rgba(0,0,0,"+ opacity +")";
+        });
+    });
+}
+
