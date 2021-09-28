@@ -19,7 +19,6 @@ function fillSquareBlack(){
     });
 }
 
-
 fillSquareBlack(drawGrid(16));
 
 function drawGrid(gridDimension) {
@@ -35,11 +34,9 @@ function drawGrid(gridDimension) {
             gridSquare.setAttribute('style', "height: 100%; width 100%; border-collapse: collapse; border: 1px solid black;")
         }
     }
-    const gridSquare = document.querySelectorAll('[class^="grid-square-"]');
-    
+    const gridSquare = document.querySelectorAll('[class^="grid-square-"]');  
     return gridSquare;
 }
-
 
 function fillSquareRandomColor(){
     const gridSquare = document.querySelectorAll('[class^="grid-square-"]');
@@ -88,4 +85,3 @@ function fillSquareGradual(){
         });
     });
 }
-
