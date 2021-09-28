@@ -1,16 +1,16 @@
-fillSquareBlack(drawGrid(16));
+fillSquareBlack(drawGrid(16)); //Draw initial grid
 
 function drawGrid(gridDimension) {
     const container = document.querySelector('#grid-container');
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
-    for (let i = 0; i < gridDimension; i++){
+    for (let i = 0; i < gridDimension; i++){ //Creates grid columns
         const gridColumn = document.createElement('div');
         gridColumn.classList.add('grid-column-' + i);
         container.appendChild(gridColumn);
         gridColumn.setAttribute('style', 'display:flex; flex-direction: column; height: 100%; width: 100%;');
-        for (let j= 0; j < gridDimension; j++){
+        for (let j= 0; j < gridDimension; j++){ //Fills grid columns with squares
             const gridSquare = document.createElement('div');
             gridSquare.classList.add('grid-square-'+j);
             gridColumn.appendChild(gridSquare);
